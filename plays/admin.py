@@ -1,5 +1,9 @@
 from django.contrib import admin
 from plays.models import Play
-# Register your models here.
 
-admin.site.register(Play, admin.ModelAdmin)
+
+class PlayAdmin(admin.ModelAdmin):
+    list_display = ("title",)
+
+admin.site.register(Play, PlayAdmin)
+
