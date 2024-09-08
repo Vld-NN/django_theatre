@@ -1,7 +1,11 @@
 from django.shortcuts import render
 from django.http.response import HttpResponse
+from django.template.response import SimpleTemplateResponse, TemplateResponse
+from django.views.generic import TemplateView
 
 # Create your views here.
-def homepage(requests):
-    welcome_text = '<h1>Добро пожаловать на сайт нашего театра! </h1>'
-    return HttpResponse(welcome_text)
+#def homepage(requests):
+    #return TemplateResponse(requests,'homepage.html')
+
+class HomepageView(TemplateView):
+    template_name = 'homepage.html'
