@@ -23,4 +23,5 @@ class Show(models.Model):
     def play_name(self):
         return self.play.title
 
+    def get_absolute_url(self):
 
