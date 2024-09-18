@@ -1,7 +1,7 @@
 from django.shortcuts import render
 from django.http.response import HttpResponse
 from django.template.response import SimpleTemplateResponse, TemplateResponse
-from django.views.generic import TemplateView
+from django.views.generic import ListView
 
 from plays.models import Show
 
@@ -10,8 +10,12 @@ from plays.models import Show
 #def homepage(requests):
     #return TemplateResponse(requests,'homepage.html')
 
-class HomepageView(TemplateView):
+class HomepageView(ListView):
     template_name = 'homepage.html'
     model = Show
+
+    def get_queryset(self):
+        return Show.objects.active()
+
 
 
