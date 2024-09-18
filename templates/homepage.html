@@ -12,7 +12,7 @@
 {% endif %}
 <table>
     {% for show in show_list %}
-    <tr> {{show.play.title }} - {{ show.starts_at }}</tr>
+    <tr><a href="{{ show.get_absolute_url }}">{{show.play.title }}</a> - {{ show.starts_at }}</tr>
     {% endfor %}
 </table>
 </body>
